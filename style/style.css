@@ -1,14 +1,11 @@
 .search-bar{
-	margin: 20px;
+	padding: 50px 0 30px;
 	text-align: center;
 }
 
 .search-bar input{
 	width: 75%;
-}
-
-.video-item img{
-	max-width: 64px;
+	padding-left: 10px;
 }
 
 .video-detail .details{
@@ -24,4 +21,10 @@
 
 .list-group-item:hover{
 	background-color: #eee;
+}
+
+.media-heading{
+	font-size: 15px;
+	padding-left: 5px;
+	padding-top: 5px;
 }

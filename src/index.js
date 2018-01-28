@@ -37,7 +37,7 @@ class App extends Component{
 	render(){
 		const videoSearch = _.debounce(term=>{this.videoSearch(term)}, 600);
 		return(
-		<div>
+		<div className="container">
 			<SearchBar onSearchTermChange={videoSearch}/>
 			<div className="row">
 				<VideoDetail video={this.state.selectedVideo}/>
@@ -50,4 +50,4 @@ class App extends Component{
 	}
 };
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.youtubeApp'));
