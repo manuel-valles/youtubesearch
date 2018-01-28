@@ -1,3 +1,5 @@
+// Import the module lodash to throttle the search term input
+import _ from 'lodash';
 // Import the module React to deal with Components
 import React, {Component} from 'react';
 // Import the module ReactDOM to Render Components to the DOM
@@ -33,9 +35,10 @@ class App extends Component{
 		});
 	}
 	render(){
+		const videoSearch = _.debounce(term=>{this.videoSearch(term)}, 600);
 		return(
 		<div>
-			<SearchBar onSearchTermChange={term=>this.videoSearch(term)}/>
+			<SearchBar onSearchTermChange={videoSearch}/>
 			<div className="row">
 				<VideoDetail video={this.state.selectedVideo}/>
 				<VideoList
