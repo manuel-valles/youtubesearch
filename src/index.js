@@ -16,18 +16,26 @@ import VideoDetail from './components/Video_detail';
 class App extends Component{
 	constructor(props){
 		super(props);
-		this.state = {videos: []};
+		this.state = {
+			videos: [],
+			selectedVideo: null
+		};
 		// Immediate some data - No just an empty array
 		YTSearch({key: API_KEY, term: 'coding'}, videos=>{
-			this.setState({videos});
+			this.setState({
+				videos,
+				selectedVideo: videos[0]
+			});
 		});
 	}
 	render(){
 		return(
 		<div>
 			<SearchBar />
-			<VideoDetail video={this.state.videos[0]}/>
-			<VideoList videos={this.state.videos}/>
+			<VideoDetail video={this.state.selectedVideo}/>
+			<VideoList
+				onVideoSelect={selectedVideo=>this.setState({selectedVideo})}
+				videos={this.state.videos}/>
 		</div>
 		);
 	}
