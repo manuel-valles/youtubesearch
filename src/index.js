@@ -20,8 +20,12 @@ class App extends Component{
 			videos: [],
 			selectedVideo: null
 		};
+		this.videoSearch('coding');
+	}
+	// Method for searching videos
+	videoSearch(term){
 		// Immediate some data - No just an empty array
-		YTSearch({key: API_KEY, term: 'coding'}, videos=>{
+		YTSearch({key: API_KEY, term}, videos=>{
 			this.setState({
 				videos,
 				selectedVideo: videos[0]
@@ -31,7 +35,7 @@ class App extends Component{
 	render(){
 		return(
 		<div>
-			<SearchBar />
+			<SearchBar onSearchTermChange={term=>this.videoSearch(term)}/>
 			<div className="row">
 				<VideoDetail video={this.state.selectedVideo}/>
 				<VideoList
